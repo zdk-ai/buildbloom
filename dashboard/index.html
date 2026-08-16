@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buildloom — Slush 280 Showcase Labs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar Rail -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-header">
+        <div class="brand-brand-group">
+          <div class="brand-icon">S</div>
+          <div>
+            <div class="brand-title">Buildloom</div>
+            <div class="brand-badge">280 Sticker Labs</div>
+          </div>
+        </div>
+        <button class="btn-sidebar-collapse" id="btn-sidebar-collapse" title="Collapse Sidebar">
+          ◀
+        </button>
+      </div>
+
+      <!-- Slush Search Input Bar -->
+      <div class="sidebar-search-container">
+        <input type="text" id="slush-search-input" class="slush-search-bar" placeholder="Search 280 components..." />
+      </div>
+
+      <div class="component-list-header">
+        <span>Sticker Components</span>
+        <span>★</span>
+      </div>
+
+      <nav class="component-nav" id="component-nav">
+        <!-- Dynamically injected Slush nav items -->
+      </nav>
+
+      <div class="sidebar-footer">
+        <span>Slush — Style Reference</span>
+        <span>v5.0</span>
+      </div>
+    </aside>
+
+    <!-- Main Stage Viewport -->
+    <main class="main-stage">
+      <header class="top-bar">
+        <div class="active-info">
+          <button class="btn btn-menu-toggle" id="btn-menu-toggle" title="Open Sidebar">
+            <span class="hamburger-bars">
+              <span></span>
+              <span></span>
+            </span>
+            <span>Menu</span>
+          </button>
+          <h2 class="active-title" id="active-title">Component Title</h2>
+          <span class="active-badge" id="active-badge">Next.js / GSAP</span>
+        </div>
+
+        <div class="action-buttons">
+          <a href="https://buildloom.github.io/docs/index.html" target="_blank" class="btn" style="text-decoration: none;">
+            📖 Docs ★
+          </a>
+          <button class="btn" id="btn-refresh">
+            Reload Stage ★
+          </button>
+          <button class="btn btn-primary" id="btn-fullscreen">
+            Full Stage ★
+          </button>
+        </div>
+      </header>
+
+      <div class="stage-viewport">
+        <iframe id="stage-iframe" class="stage-iframe" title="Component Preview Stage"></iframe>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

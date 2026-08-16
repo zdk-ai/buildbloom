@@ -1,0 +1,10 @@
+{
+  "name": "buildloom-components-showcase-project",
+  "version": "1.0.0",
+  "description": "Buildloom Components Showcase Dashboard (280 Components)",
+  "scripts": {
+    "start": "bash start.sh",
+    "dev": "bash start.sh"
+  },
+  "license": "MIT"
+}

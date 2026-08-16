@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Space+Grotesk:wght@700;800&family=Outfit:wght@500;700&family=JetBrains+Mono:wght@700&display=swap');
+
+:root {
+  /* Slush Colors */
+  --color-carbon: #000000;
+  --color-paper-white: #ffffff;
+  --color-sky-wash: #dceeff;
+  --color-concrete-gray: #cccccc;
+  --color-soft-mist: #e9e9e9;
+  --color-electric-blue: #4da2ff;
+  --color-mint-pop: #55db9c;
+  --color-lavender: #e9ccff;
+  --color-ember: #fb4903;
+  --color-sunburst: #ffd731;
+  --color-voltage-violet: #5c4ade;
+
+  /* Typography */
+  --font-lateral: 'Antonio', 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-aeonik-pro: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Radii */
+  --radius-cards: 20px;
+  --radius-cards-elevated: 40px;
+  --radius-pills: 1600px;
+  --radius-buttons: 1600px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-aeonik-pro);
+  background-color: var(--color-sky-wash);
+  color: var(--color-carbon);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+#app {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-sky-wash);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sidebar Rail — Slush Soft Card Rail */
+.sidebar {
+  width: 370px;
+  min-width: 370px;
+  background-color: var(--color-paper-white);
+  border-right: 2px solid var(--color-carbon);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), margin-left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+#app.sidebar-collapsed .sidebar {
+  margin-left: -370px;
+}
+
+.brand-header {
+  padding: 1.25rem 1.25rem;
+  border-bottom: 2px solid var(--color-carbon);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-sky-wash);
+}
+
+.brand-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pills);
+  background: var(--color-sunburst);
+  color: var(--color-carbon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-lateral);
+  font-weight: 800;
+  font-size: 1.6rem;
+  border: 2px solid var(--color-carbon);
+}
+
+.brand-title {
+  font-family: var(--font-lateral);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--color-carbon);
+  text-transform: uppercase;
+  line-height: 0.85;
+}
+
+.brand-badge {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  background: var(--color-mint-pop);
+  color: var(--color-carbon);
+  padding: 3px 10px;
+  border-radius: var(--radius-pills);
+  border: 1px solid var(--color-carbon);
+  font-weight: 700;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+/* Sidebar Collapse Button inside Brand Header */
+.btn-sidebar-collapse {
+  background: var(--color-paper-white);
+  border: 1px solid var(--color-carbon);
+  border-radius: var(--radius-pills);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: var(--color-carbon);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  font-weight: 700;
+}
+
+.btn-sidebar-collapse:hover {
+  background: var(--color-carbon);
+  color: var(--color-paper-white);
+}
+
+/* Slush Search Input Bar */
+.sidebar-search-container {
+  padding: 0.85rem 1rem 0.25rem;
+}
+
+.slush-search-bar {
+  width: 100%;
+  padding: 0.65rem 1.1rem;
+  font-family: var(--font-aeonik-pro);
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: var(--color-paper-white);
+  border: 2px solid var(--color-carbon);
+  border-radius: var(--radius-pills);
+  color: var(--color-carbon);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.slush-search-bar:focus {
+  border-color: var(--color-electric-blue);
+  box-shadow: 2px 2px 0px var(--color-carbon);
+}
+
+.slush-search-bar::placeholder {
+  color: var(--color-carbon);
+  opacity: 0.6;
+}
+
+.component-list-header {
+  padding: 0.75rem 1.25rem 0.4rem;
+  font-family: var(--font-lateral);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-carbon);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.component-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Category Collapsible Accordion Dropdown */
+.category-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.category-header {
+  background: var(--color-sky-wash);
+  border: 2px solid var(--color-carbon);
+  border-radius: var(--radius-cards);
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.category-header:hover {
+  background: var(--color-lavender);
+}
+
+.category-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.category-icon {
+  font-size: 1rem;
+}
+
+.category-title {
+  font-family: var(--font-lateral);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+  color: var(--color-carbon);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.category-badge {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  background: var(--color-paper-white);
+  color: var(--color-carbon);
+  padding: 2px 8px;
+  border-radius: var(--radius-pills);
+  border: 1px solid var(--color-carbon);
+  font-weight: 700;
+}
+
+.category-arrow {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+  font-weight: 700;
+}
+
+.category-children {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-left: 0.5rem;
+  border-left: 2px dashed var(--color-carbon);
+  margin-left: 0.75rem;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.category-group.collapsed .category-children {
+  max-height: 0 !important;
+  opacity: 0;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.category-group.collapsed .category-arrow {
+  transform: rotate(-90deg);
+}
+
+/* Slush Soft Sticker Nav Card Item */
+.nav-item {
+  background: var(--color-paper-white);
+  border: 2px solid var(--color-carbon);
+  border-radius: var(--radius-cards);
+  padding: 0.85rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  position: relative;
+}
+
+.nav-item:hover {
+  background: var(--color-lavender);
+  transform: translateY(-2px);
+}
+
+.nav-item.active {
+  background: var(--color-paper-white);
+  border: 2px solid var(--color-carbon);
+  outline: 2px solid var(--color-electric-blue);
+  box-shadow: 4px 4px 0px var(--color-carbon);
+}
+
+.nav-item-title {
+  font-family: var(--font-lateral);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+  color: var(--color-carbon);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.nav-item-subtitle {
+  font-size: 0.78rem;
+  color: var(--color-carbon);
+  line-height: 1.3;
+  opacity: 0.9;
+}
+
+.nav-item-tech {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-top: 0.2rem;
+}
+
+.tech-tag {
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-pills);
+  background: var(--color-sky-wash);
+  color: var(--color-carbon);
+  border: 1px solid var(--color-carbon);
+}
+
+.nav-item.active .tech-tag {
+  background: var(--color-ember);
+  color: var(--color-paper-white);
+  border-color: var(--color-carbon);
+}
+
+/* Slush Callout Banner */
+.slush-callout {
+  border: 2px solid var(--color-carbon);
+  border-radius: var(--radius-cards);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.slush-callout-mint {
+  background: var(--color-mint-pop);
+  color: var(--color-carbon);
+}
+
+.slush-callout-ember {
+  background: var(--color-ember);
+  color: var(--color-paper-white);
+}
+
+.slush-callout-sunburst {
+  background: var(--color-sunburst);
+  color: var(--color-carbon);
+}
+
+.slush-callout-sky {
+  background: var(--color-sky-wash);
+  color: var(--color-carbon);
+}
+
+/* Slush Linked Card Grid Item */
+.slush-linked-card {
+  background: var(--color-paper-white);
+  border: 2px solid var(--color-carbon);
+  border-radius: var(--radius-cards);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-carbon);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  cursor: pointer;
+}
+
+.slush-linked-card:hover {
+  background: var(--color-sky-wash);
+  transform: translateY(-3px);
+  box-shadow: 4px 4px 0px var(--color-carbon);
+}
+
+.slush-linked-card-title {
+  font-family: var(--font-lateral);
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+
+.slush-linked-card-desc {
+  font-size: 0.82rem;
+  opacity: 0.85;
+  line-height: 1.35;
+}
+
+.sidebar-footer {
+  padding: 1rem 1.25rem;
+  border-top: 2px solid var(--color-carbon);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-carbon);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-sky-wash);
+}
+
+/* Main Showcase Stage */
+.main-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--color-sky-wash);
+  transition: flex 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 0;
+}
+
+.top-bar {
+  height: 76px;
+  border-bottom: 2px solid var(--color-carbon);
+  padding: 0 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-paper-white);
+}
+
+.active-info {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+/* Slush Pill Button Toggle */
+.btn-menu-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.2rem;
+  font-family: var(--font-aeonik-pro);
+  font-size: 0.88rem;
+  font-weight: 700;
+  background: var(--color-paper-white);
+  border: 1px solid var(--color-carbon);
+  border-radius: var(--radius-pills);
+  color: var(--color-carbon);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  letter-spacing: 0.03em;
+}
+
+.btn-menu-toggle:hover {
+  background: var(--color-carbon);
+  color: var(--color-paper-white);
+}
+
+.btn-menu-toggle:hover .hamburger-bars span {
+  background-color: var(--color-paper-white);
+}
+
+.hamburger-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 14px;
+}
+
+.hamburger-bars span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-carbon);
+  border-radius: 1px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.active-title {
+  font-family: var(--font-lateral);
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: 0.02em;
+  color: var(--color-carbon);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.active-title span {
+  color: var(--color-electric-blue);
+}
+
+.active-badge {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  background: var(--color-sunburst);
+  padding: 4px 12px;
+  border-radius: var(--radius-pills);
+  color: var(--color-carbon);
+  font-weight: 700;
+  border: 1px solid var(--color-carbon);
+}
+
+/* Action Buttons — Slush Filled & Outlined Pill Buttons */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  background: var(--color-paper-white);
+  border: 1px solid var(--color-carbon);
+  border-radius: var(--radius-pills);
+  color: var(--color-carbon);
+  padding: 0.6rem 1.4rem;
+  font-family: var(--font-aeonik-pro);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.032em;
+}
+
+.btn:hover {
+  background: var(--color-carbon);
+  color: var(--color-paper-white);
+}
+
+.btn-primary {
+  background: var(--color-carbon);
+  border: 1px solid var(--color-carbon);
+  color: var(--color-paper-white);
+}
+
+.btn-primary:hover {
+  background: var(--color-electric-blue);
+  color: var(--color-carbon);
+}
+
+/* Viewport Frame */
+.stage-viewport {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-sky-wash);
+}
+
+.stage-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: var(--color-paper-white);
+}

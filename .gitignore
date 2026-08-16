@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+**/node_modules/
+.pnpm-store/
+**/.pnpm-store/
+
+# Build & Dev Cache
+dist/
+**/dist/
+.next/
+**/.next/
+.astro/
+**/.astro/
+.cache/
+**/.cache/
+.vite/
+**/.vite/
+*.log
+
+# System files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# Scratch & Temporary storage
+scratch/
+.tempmediaStorage/
